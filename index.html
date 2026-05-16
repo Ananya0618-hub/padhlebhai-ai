@@ -561,11 +561,348 @@
       .waitlist-form input { width: 100%; }
       footer { flex-direction: column; text-align: center; }
     }
+
+    /* TOOL PAGE */
+    #tool-page { display: none; }
+
+    .tool-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 60px;
+      background: rgba(10,10,10,0.95);
+      border-bottom: 1px solid #222;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .tool-nav .logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 24px;
+      color: var(--yellow);
+      letter-spacing: 2px;
+    }
+
+    .back-btn {
+      background: transparent;
+      border: 1px solid #333;
+      color: #aaa;
+      padding: 8px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      transition: all 0.2s;
+    }
+
+    .back-btn:hover { border-color: var(--yellow); color: var(--yellow); }
+
+    .tool-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 60px 40px;
+    }
+
+    .tool-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .tool-header h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 56px;
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .tool-header h1 span { color: var(--yellow); }
+
+    .tool-header p {
+      color: #777;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 32px;
+      background: #141414;
+      padding: 6px;
+      border-radius: 10px;
+      border: 1px solid #222;
+    }
+
+    .tab {
+      flex: 1;
+      padding: 12px;
+      text-align: center;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 800;
+      font-size: 14px;
+      color: #555;
+      transition: all 0.2s;
+      border: none;
+      background: transparent;
+      font-family: 'Nunito', sans-serif;
+    }
+
+    .tab.active {
+      background: var(--yellow);
+      color: var(--black);
+    }
+
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    .upload-area {
+      border: 2px dashed #333;
+      border-radius: 12px;
+      padding: 60px 40px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s;
+      background: #0d0d0d;
+    }
+
+    .upload-area:hover { border-color: var(--yellow); background: #111; }
+    .upload-area.dragover { border-color: var(--yellow); background: rgba(255,230,0,0.05); }
+
+    .upload-icon { font-size: 48px; margin-bottom: 16px; }
+    .upload-area h3 { font-size: 20px; font-weight: 900; margin-bottom: 8px; }
+    .upload-area p { color: #555; font-size: 14px; font-weight: 600; }
+
+    .upload-area input[type="file"] { display: none; }
+
+    .file-selected {
+      margin-top: 16px;
+      padding: 12px 20px;
+      background: rgba(255,230,0,0.1);
+      border: 1px solid var(--yellow);
+      border-radius: 6px;
+      color: var(--yellow);
+      font-weight: 800;
+      font-size: 14px;
+      display: none;
+    }
+
+    .pyq-textarea {
+      width: 100%;
+      min-height: 160px;
+      background: #0d0d0d;
+      border: 2px solid #333;
+      border-radius: 12px;
+      padding: 20px;
+      color: var(--white);
+      font-family: 'Nunito', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      resize: vertical;
+      outline: none;
+      transition: border 0.2s;
+    }
+
+    .pyq-textarea:focus { border-color: var(--yellow); }
+    .pyq-textarea::placeholder { color: #444; }
+
+    .summarize-btn {
+      width: 100%;
+      margin-top: 20px;
+      padding: 18px;
+      background: var(--yellow);
+      color: var(--black);
+      border: none;
+      border-radius: 8px;
+      font-size: 18px;
+      font-weight: 900;
+      font-family: 'Nunito', sans-serif;
+      cursor: pointer;
+      transition: all 0.2s;
+      letter-spacing: 0.5px;
+    }
+
+    .summarize-btn:hover { background: var(--orange); color: var(--white); transform: scale(1.01); }
+    .summarize-btn:disabled { background: #333; color: #666; cursor: not-allowed; transform: none; }
+
+    .result-box {
+      margin-top: 32px;
+      background: #0d0d0d;
+      border: 1px solid #222;
+      border-radius: 12px;
+      padding: 32px;
+      display: none;
+    }
+
+    .result-box.visible { display: block; }
+
+    .result-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid #222;
+    }
+
+    .result-header h3 {
+      font-size: 18px;
+      font-weight: 900;
+      color: var(--yellow);
+    }
+
+    .copy-btn {
+      padding: 8px 16px;
+      background: #1a1a1a;
+      border: 1px solid #333;
+      color: #aaa;
+      border-radius: 4px;
+      cursor: pointer;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      transition: all 0.2s;
+    }
+
+    .copy-btn:hover { border-color: var(--yellow); color: var(--yellow); }
+
+    .result-content {
+      color: #ddd;
+      font-size: 15px;
+      line-height: 1.8;
+      font-weight: 600;
+      white-space: pre-wrap;
+    }
+
+    .loading-state {
+      text-align: center;
+      padding: 40px;
+      display: none;
+    }
+
+    .loading-state.visible { display: block; }
+
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid #222;
+      border-top-color: var(--yellow);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 16px;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .loading-state p {
+      color: #777;
+      font-weight: 700;
+      font-size: 15px;
+    }
+
+    .loading-state p span {
+      color: var(--yellow);
+    }
+
+    /* EMAIL GATE */
+    #email-gate {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.95);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #email-gate.visible { display: flex; }
+
+    .gate-box {
+      background: #141414;
+      border: 1px solid #333;
+      border-radius: 16px;
+      padding: 48px 40px;
+      max-width: 480px;
+      width: 90%;
+      text-align: center;
+    }
+
+    .gate-box .gate-emoji { font-size: 48px; margin-bottom: 20px; }
+
+    .gate-box h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 36px;
+      margin-bottom: 12px;
+      color: var(--yellow);
+    }
+
+    .gate-box p {
+      color: #777;
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 28px;
+      line-height: 1.6;
+    }
+
+    .gate-input {
+      width: 100%;
+      padding: 14px 20px;
+      background: #0d0d0d;
+      border: 2px solid #333;
+      border-radius: 8px;
+      color: var(--white);
+      font-size: 15px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 600;
+      outline: none;
+      margin-bottom: 12px;
+      transition: border 0.2s;
+    }
+
+    .gate-input:focus { border-color: var(--yellow); }
+    .gate-input::placeholder { color: #444; }
+
+    .gate-btn {
+      width: 100%;
+      padding: 14px;
+      background: var(--yellow);
+      color: var(--black);
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 900;
+      font-family: 'Nunito', sans-serif;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .gate-btn:hover { background: var(--orange); color: var(--white); }
+    .gate-note { margin-top: 12px; font-size: 12px; color: #444; font-weight: 600; }
+
+    .credits-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #141414;
+      border: 1px solid #222;
+      border-radius: 8px;
+      padding: 12px 20px;
+      margin-bottom: 24px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #aaa;
+    }
+
+    .credits-bar span { color: var(--yellow); font-size: 18px; font-weight: 900; }
+
   </style>
 </head>
 <body>
 
   <!-- NAV -->
+  <div id="landing-page">
   <nav>
     <div class="logo">PadhLe<span>Bhai</span>.ai</div>
     <a href="#waitlist">Get Early Access</a>
@@ -594,6 +931,7 @@
       <button onclick="joinWaitlist('hero-email', 'hero-success')">Count Me In 🙏</button>
     </div>
     <p class="form-note">No spam. Just one email when we launch. Promise on our GPA. 📚</p>
+    <div style="margin-top:24px"><button onclick="showTool()" style="padding:16px 40px; background:transparent; border:2px solid var(--yellow); color:var(--yellow); border-radius:6px; font-size:16px; font-weight:900; font-family:Nunito,sans-serif; cursor:pointer; letter-spacing:0.5px; transition:all 0.2s" onmouseover="this.style.background='var(--yellow)';this.style.color='var(--black)'" onmouseout="this.style.background='transparent';this.style.color='var(--yellow)'">⚡ Try The Tool Now</button></div>
     <div class="success-msg" id="hero-success">🎉 You're on the list! Ab chain se so ja.</div>
   </section>
 
@@ -776,6 +1114,263 @@
         btn.disabled = false;
       }
     }
+
+
+    // ---- TOOL PAGE LOGIC ----
+    const GEMINI_KEY = 'AIzaSyDtS_VJFFvJy_0s71I0AQAUI1g32ubLRYQ';
+    const SHEET_URL_TOOL = 'https://script.google.com/macros/s/AKfycbzjpTMsbKNkEwnLfZOq7am1cmT03E5ZzYe5sZ8i9cAk6U5G4vM3iwq_8KMsyk9l84Sf/exec';
+    let credits = 5;
+    let selectedFile = null;
+
+    function showTool() {
+      const unlocked = localStorage.getItem('plb_unlocked');
+      if (unlocked) {
+        document.getElementById('landing-page').style.display = 'none';
+        document.getElementById('tool-page').style.display = 'block';
+        credits = parseInt(localStorage.getItem('plb_credits') || '5');
+        document.getElementById('credits-count').textContent = credits;
+      } else {
+        document.getElementById('email-gate').classList.add('visible');
+      }
+    }
+
+    function showLanding() {
+      document.getElementById('tool-page').style.display = 'none';
+      document.getElementById('landing-page').style.display = 'block';
+      window.scrollTo(0, 0);
+    }
+
+    async function unlockTool() {
+      const email = document.getElementById('gate-email').value;
+      if (!email || !email.includes('@')) {
+        alert('Bhai sahi email daal! 😅');
+        return;
+      }
+      // Save to Google Sheets
+      await fetch(SHEET_URL_TOOL, {
+        method: 'POST', mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email })
+      });
+      localStorage.setItem('plb_unlocked', 'true');
+      localStorage.setItem('plb_credits', '5');
+      document.getElementById('email-gate').classList.remove('visible');
+      document.getElementById('landing-page').style.display = 'none';
+      document.getElementById('tool-page').style.display = 'block';
+    }
+
+    function switchTab(tab) {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+      event.target.classList.add('active');
+      document.getElementById('tab-' + tab).classList.add('active');
+      document.getElementById('result-box').classList.remove('visible');
+      document.getElementById('loading').classList.remove('visible');
+    }
+
+    function handleDragOver(e) { e.preventDefault(); e.currentTarget.classList.add('dragover'); }
+
+    function handleDrop(e) {
+      e.preventDefault();
+      e.currentTarget.classList.remove('dragover');
+      const file = e.dataTransfer.files[0];
+      if (file) setFile(file);
+    }
+
+    function handleFileSelect(e) { setFile(e.target.files[0]); }
+
+    function setFile(file) {
+      selectedFile = file;
+      document.getElementById('file-name').textContent = file.name;
+      document.getElementById('file-selected').style.display = 'block';
+    }
+
+    function useCredit() {
+      if (credits <= 0) {
+        alert('Bhai free credits khatam! 😅 Come back tomorrow or share with friends to get more.');
+        return false;
+      }
+      credits--;
+      localStorage.setItem('plb_credits', credits);
+      document.getElementById('credits-count').textContent = credits;
+      return true;
+    }
+
+    async function summarizePDF() {
+      if (!selectedFile) { alert('Pehle file upload kar bhai! 😅'); return; }
+      if (!useCredit()) return;
+
+      showLoading();
+
+      const reader = new FileReader();
+      reader.onload = async (e) => {
+        const base64 = e.target.result.split(',')[1];
+        const prompt = `You are an expert exam prep assistant for engineering students. 
+A student has uploaded their study material the night before their exam.
+
+Analyze this document and provide:
+1. 📌 **KEY TOPICS** (bullet points of the most important topics)
+2. ⚡ **CRISP SUMMARY** (each topic explained in 2-3 simple lines)  
+3. 🎯 **MOST LIKELY EXAM QUESTIONS** (3-5 questions likely to come based on this material)
+4. 💡 **REMEMBER THIS** (key formulas, definitions, or facts to memorize)
+
+Keep everything concise and exam-focused. A student should be able to read this in 10 minutes and feel prepared.`;
+
+        try {
+          const res = await fetch(\`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=\${GEMINI_KEY}\`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              contents: [{
+                parts: [
+                  { text: prompt },
+                  { inline_data: { mime_type: selectedFile.type || 'application/pdf', data: base64 } }
+                ]
+              }]
+            })
+          });
+          const data = await res.json();
+          const text = data.candidates?.[0]?.content?.parts?.[0]?.text || 'Could not summarize. Try again!';
+          showResult(text);
+        } catch (err) {
+          showResult('Error: ' + err.message + '\n\nMake sure your Gemini API key is set correctly!');
+        }
+      };
+      reader.readAsDataURL(selectedFile);
+    }
+
+    async function solvePYQ() {
+      const question = document.getElementById('pyq-input').value.trim();
+      if (!question) { alert('Pehle question paste kar bhai! 😅'); return; }
+      if (!useCredit()) return;
+
+      showLoading();
+
+      const prompt = `You are an expert engineering exam assistant. A student needs a concise, exam-ready answer for this question the night before their exam.
+
+Question: ${question}
+
+Provide:
+1. 📝 **DIRECT ANSWER** (clear and concise, exam-ready)
+2. 🔑 **KEY POINTS** (bullet points to remember)
+3. 📊 **EXAMPLE/DIAGRAM** (if applicable, describe it)
+4. ⚡ **ONE-LINE SUMMARY** (to remember in the exam hall)
+
+Keep it focused and easy to remember. No fluff.`;
+
+      try {
+        const res = await fetch(\`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=\${GEMINI_KEY}\`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
+        });
+        const data = await res.json();
+        const text = data.candidates?.[0]?.content?.parts?.[0]?.text || 'Could not answer. Try again!';
+        showResult(text);
+      } catch (err) {
+        showResult('Error: ' + err.message);
+      }
+    }
+
+    function showLoading() {
+      document.getElementById('loading').classList.add('visible');
+      document.getElementById('result-box').classList.remove('visible');
+    }
+
+    function showResult(text) {
+      document.getElementById('loading').classList.remove('visible');
+      document.getElementById('result-content').textContent = text;
+      document.getElementById('result-box').classList.add('visible');
+    }
+
+    function copyResult() {
+      navigator.clipboard.writeText(document.getElementById('result-content').textContent);
+      document.querySelector('.copy-btn').textContent = '✅ Copied!';
+      setTimeout(() => document.querySelector('.copy-btn').textContent = '📋 Copy All', 2000);
+    }
+
   </script>
+
+</div>
+  <!-- EMAIL GATE -->
+  <div id="email-gate">
+    <div class="gate-box">
+      <div class="gate-emoji">🔐</div>
+      <h2>Almost There!</h2>
+      <p>Enter your email to unlock the AI summarizer. We'll also send you updates when new features drop.</p>
+      <input type="email" id="gate-email" class="gate-input" placeholder="your@email.com" />
+      <button class="gate-btn" onclick="unlockTool()">Unlock Free Access 🚀</button>
+      <p class="gate-note">No spam. Ever. Promise on our GPA. 🙏</p>
+    </div>
+  </div>
+
+  <!-- TOOL PAGE -->
+  <div id="tool-page">
+    <nav class="tool-nav">
+      <div class="logo">PadhLe<span style="color:var(--orange)">Bhai</span>.ai</div>
+      <button class="back-btn" onclick="showLanding()">← Back to Home</button>
+    </nav>
+
+    <div class="tool-container">
+      <div class="tool-header">
+        <h1>Your AI <span>Study Buddy</span></h1>
+        <p>Upload your material. Get crisp exam-ready notes in seconds. 🚀</p>
+      </div>
+
+      <div class="credits-bar">
+        ⚡ Free summaries remaining today: <span id="credits-count">5</span>
+      </div>
+
+      <div class="tabs">
+        <button class="tab active" onclick="switchTab('pdf')">📄 PDF / PPT Summarizer</button>
+        <button class="tab" onclick="switchTab('pyq')">❓ PYQ Solver</button>
+        <button class="tab" onclick="switchTab('youtube')">▶️ YouTube Notes</button>
+      </div>
+
+      <!-- PDF TAB -->
+      <div class="tab-content active" id="tab-pdf">
+        <div class="upload-area" onclick="document.getElementById('file-input').click()" 
+             ondragover="handleDragOver(event)" ondrop="handleDrop(event)">
+          <div class="upload-icon">📄</div>
+          <h3>Drop your PPT or PDF here</h3>
+          <p>or click to browse • Max 10MB</p>
+          <input type="file" id="file-input" accept=".pdf,.ppt,.pptx" onchange="handleFileSelect(event)" />
+        </div>
+        <div class="file-selected" id="file-selected">📎 <span id="file-name"></span></div>
+        <button class="summarize-btn" onclick="summarizePDF()" id="pdf-btn">✨ Summarize Now</button>
+      </div>
+
+      <!-- PYQ TAB -->
+      <div class="tab-content" id="tab-pyq">
+        <textarea class="pyq-textarea" id="pyq-input" 
+          placeholder="Paste your PYQ question here...&#10;&#10;Example: Explain the concept of deadlock in operating systems with suitable examples. (10 marks)"></textarea>
+        <button class="summarize-btn" onclick="solvePYQ()">✨ Get Answer Now</button>
+      </div>
+
+      <!-- YOUTUBE TAB -->
+      <div class="tab-content" id="tab-youtube">
+        <textarea class="pyq-textarea" id="youtube-input" 
+          placeholder="Paste YouTube video URL here...&#10;&#10;Example: https://www.youtube.com/watch?v=..." style="min-height:80px"></textarea>
+        <p style="color:#555; font-size:13px; font-weight:600; margin-top:8px;">⚠️ YouTube summarizer coming soon! Use PDF or PYQ solver for now.</p>
+        <button class="summarize-btn" onclick="alert('Coming soon bhai! Use PDF summarizer for now 😅')" style="margin-top:12px; background:#222; color:#555;">▶️ Coming Soon</button>
+      </div>
+
+      <!-- LOADING -->
+      <div class="loading-state" id="loading">
+        <div class="spinner"></div>
+        <p>AI is reading your material... <span>hang tight! ☕</span></p>
+      </div>
+
+      <!-- RESULT -->
+      <div class="result-box" id="result-box">
+        <div class="result-header">
+          <h3>✅ Your Crisp Summary</h3>
+          <button class="copy-btn" onclick="copyResult()">📋 Copy All</button>
+        </div>
+        <div class="result-content" id="result-content"></div>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
