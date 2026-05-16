@@ -1265,10 +1265,15 @@ Keep it focused and easy to remember. No fluff.`;
           body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
         });
         const data = await res.json();
+        console.log('Gemini response:', JSON.stringify(data));
+        if (data.error) {
+          showResult('API Error: ' + data.error.message);
+          return;
+        }
         const text = data.candidates?.[0]?.content?.parts?.[0]?.text || 'Could not answer. Try again!';
         showResult(text);
       } catch (err) {
-        showResult('Error: ' + err.message);
+        showResult('Network Error: ' + err.message);
       }
     }
 
