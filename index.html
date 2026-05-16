@@ -1119,7 +1119,7 @@
     // ---- TOOL PAGE LOGIC ----
     const GEMINI_KEY = 'AIzaSyDtS_VJFFvJy_0s71I0AQAUI1g32ubLRYQ';
     const SHEET_URL_TOOL = 'https://script.google.com/macros/s/AKfycbzjpTMsbKNkEwnLfZOq7am1cmT03E5ZzYe5sZ8i9cAk6U5G4vM3iwq_8KMsyk9l84Sf/exec';
-    let credits = 5;
+    let credits = 50;
     let selectedFile = null;
 
     function showTool() {
@@ -1127,7 +1127,7 @@
       if (unlocked) {
         document.getElementById('landing-page').style.display = 'none';
         document.getElementById('tool-page').style.display = 'block';
-        credits = parseInt(localStorage.getItem('plb_credits') || '5');
+        credits = parseInt(localStorage.getItem('plb_credits') || '50');
         document.getElementById('credits-count').textContent = credits;
       } else {
         document.getElementById('email-gate').classList.add('visible');
@@ -1153,7 +1153,7 @@
         body: JSON.stringify({ email })
       });
       localStorage.setItem('plb_unlocked', 'true');
-      localStorage.setItem('plb_credits', '5');
+      localStorage.setItem('plb_credits', '50');
       document.getElementById('email-gate').classList.remove('visible');
       document.getElementById('landing-page').style.display = 'none';
       document.getElementById('tool-page').style.display = 'block';
@@ -1217,7 +1217,7 @@ Analyze this document and provide:
 Keep everything concise and exam-focused. A student should be able to read this in 10 minutes and feel prepared.`;
 
         try {
-          const res = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=' + GEMINI_KEY, {
+          const res = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-8b:generateContent?key=' + GEMINI_KEY, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -1259,7 +1259,7 @@ Provide:
 Keep it focused and easy to remember. No fluff.`;
 
       try {
-        const res = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=' + GEMINI_KEY, {
+        const res = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-8b:generateContent?key=' + GEMINI_KEY, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
